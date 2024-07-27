@@ -155,44 +155,44 @@
 								<h1 class="mb-4 mt-3">I'm <span>Sundaram Verma</span></h1>
 
 								<!-- Element to contain animated typing -->
-								<span id="typing-animation"></span>
+								<div id="typing-animation"></div>
 
-								<script>
+    <script>
+        // Initialize the typing animation
+        const typingAnimationElement = document.getElementById('typing-animation');
 
-									// Initialize the typing animation
-									const typingAnimationElement = document.getElementById('typing-animation');
+        // Create an array of typing text
+        const typingTexts = [
+            'Engineer  ',
+            'Vlogger  ',
+            'Travel Photographer  ',
+            'Content Creator  ',
+        ];
 
-									// Create an array of typing text
-									const typingTexts = [
-										'Engineer  ',
-										'Vlogger  ',
-										'Travel Photographer  ',
-										'Content Creator  ', // Added Content Creator here
-									];
+        // Create a function to display the typing animation for a given text
+        function playTypingAnimation(text) {
+            typingAnimationElement.textContent = ''; // Clear the text at the start
 
-									// Create a function to display the typing animation for a given text
-									function playTypingAnimation(text) {
-										// Loop through each character and add it to the element
-										for (let i = 0; i < text.length; i++) {
-											setTimeout(() => {
-												typingAnimationElement.textContent += text[i];
-											}, i * 200); // Increase the delay to slow down the typing animation
-										}
+            // Loop through each character and add it to the element
+            for (let i = 0; i < text.length; i++) {
+                setTimeout(() => {
+                    typingAnimationElement.textContent += text[i];
+                }, i * 200); // Increase the delay to slow down the typing animation
+            }
 
-										// Once the animation is complete, reset the text and start over
-										setTimeout(() => {
-											typingAnimationElement.textContent = '';
-											// Delay before starting the next animation
-											setTimeout(() => {
-												playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
-											}, 500); // Adjust this delay as needed
-										}, text.length * 200);
-									}
+            // Once the animation is complete, reset the text and start over
+            setTimeout(() => {
+                // Delay before starting the next animation
+                setTimeout(() => {
+                    // Call the next text in the array
+                    playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
+                }, 500); // Adjust this delay as needed
+            }, text.length * 200 + 500); // Ensure enough time before resetting
+        }
 
-									// Start the typing animation loop
-									playTypingAnimation(typingTexts[0]);
-
-								</script>
+        // Start the typing animation loop
+        playTypingAnimation(typingTexts[0]);
+    </script>
 
 								<br>
 								<br>
